@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { DottedMap } from "@/components/ui/dotted-map"
 import { NumberTicker } from "@/components/ui/number-ticker"
-import { locationMarkers, locationStats } from "./locationsData"
+import { locationMarkers, locationStats } from "@/data/landingPage"
 
 const nigeriaRegion = {
   lat: {

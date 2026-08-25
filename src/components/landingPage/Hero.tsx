@@ -16,7 +16,7 @@ import {
   SelectTrigger,
 } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
-import { passengerOptions, routeFields, tripTypes } from "./heroData"
+import { passengerOptions, routeFields, tripTypes } from "@/data/landingPage"
 
 function formatTripDate(date: Date) {
   return new Intl.DateTimeFormat("en", {
@@ -45,7 +45,6 @@ export default function Hero() {
       >
         <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-7xl flex-col justify-center px-6 pt-28 pb-6">
           <div className="max-w-xl pb-10 text-white">
-            <p className="mb-4 text-sm font-semibold text-primary">MoveNG</p>
             <h1 className="text-5xl leading-tight font-bold tracking-normal text-balance md:text-6xl">
               Intercity travel made simple
             </h1>

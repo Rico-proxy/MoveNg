@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { howItWorksSteps } from "./howItWorksData"
+import { howItWorksSteps } from "@/data/landingPage"
 
 export default function HowItWorks() {
   return (

@@ -1,7 +1,7 @@
 import { ArrowRight } from "@phosphor-icons/react"
 
 import { Marquee } from "@/components/ui/marquee"
-import { trustedOperators } from "./trustedOperatorsData"
+import { trustedOperators } from "@/data/landingPage"
 
 type OperatorLogoProps = {
   mark: string

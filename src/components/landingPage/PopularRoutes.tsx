@@ -1,7 +1,7 @@
 import { ArrowRight } from "@phosphor-icons/react"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { popularRoutes } from "./heroData"
+import { popularRoutes } from "@/data/landingPage"
 
 export default function PopularRoutes() {
   return (

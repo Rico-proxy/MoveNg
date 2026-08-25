@@ -3,7 +3,7 @@ import { motion } from "motion/react"
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Marquee } from "@/components/ui/marquee"
-import { destinations } from "./destinationsData"
+import { destinations } from "@/data/landingPage"
 
 export default function Destinations() {
   return (

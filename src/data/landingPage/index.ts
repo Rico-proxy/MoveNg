@@ -1,0 +1,7 @@
+export { destinations } from "./destinationsData"
+export { passengerOptions, routeFields, tripTypes } from "./heroData"
+export { howItWorksSteps } from "./howItWorksData"
+export { locationMarkers, locationStats } from "./locationsData"
+export { popularRoutes } from "./popularRoutesData"
+export { trustedOperators } from "./trustedOperatorsData"
+export { benefits } from "./whyChooseData"

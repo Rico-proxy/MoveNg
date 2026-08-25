@@ -1,11 +1,14 @@
 import {
   Bus,
+  List,
   Moon,
   Question,
   RoadHorizon,
   Storefront,
   Sun,
+  X,
 } from "@phosphor-icons/react"
+import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import { Dock, DockIcon } from "@/components/ui/dock"
@@ -36,6 +39,7 @@ const navItems = [
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme()
+  const [isDockOpen, setIsDockOpen] = useState(false)
   const isDark = theme === "dark"
 
   function toggleTheme() {
@@ -65,38 +69,60 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <Button
-            size="icon"
-            variant="outline"
-            className="border-border bg-background text-foreground hover:bg-muted"
-            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            onClick={toggleTheme}
-          >
-            {isDark ? <Sun weight="bold" /> : <Moon weight="bold" />}
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              size="icon"
+              variant="outline"
+              className="border-border bg-background text-foreground hover:bg-muted"
+              aria-label={
+                isDark ? "Switch to light mode" : "Switch to dark mode"
+              }
+              onClick={toggleTheme}
+            >
+              {isDark ? <Sun weight="bold" /> : <Moon weight="bold" />}
+            </Button>
+
+            <Button
+              size="icon"
+              variant="outline"
+              className="border-border bg-background text-foreground hover:bg-muted lg:hidden"
+              aria-label={
+                isDockOpen
+                  ? "Close mobile navigation"
+                  : "Open mobile navigation"
+              }
+              aria-expanded={isDockOpen}
+              onClick={() => setIsDockOpen((current) => !current)}
+            >
+              {isDockOpen ? <X weight="bold" /> : <List weight="bold" />}
+            </Button>
+          </div>
         </div>
       </header>
 
-      <div className="fixed inset-x-0 bottom-5 z-50 flex justify-center px-4 md:hidden">
-        <Dock iconSize={52} iconMagnification={58} disableMagnification>
-          {navItems.map((item) => {
-            const Icon = item.icon
+      {isDockOpen && (
+        <div className="fixed inset-x-0 bottom-5 z-50 flex justify-center px-4 lg:hidden">
+          <Dock iconSize={52} iconMagnification={58} disableMagnification>
+            {navItems.map((item) => {
+              const Icon = item.icon
 
-            return (
-              <DockIcon
-                key={item.label}
-                aria-label={item.label}
-                className="gap-1 px-1"
-              >
-                <Icon className="size-5" weight="bold" />
-                <span className="text-[0.62rem] leading-none font-semibold">
-                  {item.label}
-                </span>
-              </DockIcon>
-            )
-          })}
-        </Dock>
-      </div>
+              return (
+                <DockIcon
+                  key={item.label}
+                  aria-label={item.label}
+                  className="gap-1 px-1"
+                  onClick={() => setIsDockOpen(false)}
+                >
+                  <Icon className="size-5" weight="bold" />
+                  <span className="text-[0.62rem] leading-none font-semibold">
+                    {item.label}
+                  </span>
+                </DockIcon>
+              )
+            })}
+          </Dock>
+        </div>
+      )}
     </>
   )
 }

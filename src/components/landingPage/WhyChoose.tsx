@@ -1,6 +1,6 @@
 import { heroBus } from "@/assets/images"
 import { Card, CardContent } from "@/components/ui/card"
-import { benefits } from "./whyChooseData"
+import { benefits } from "@/data/landingPage"
 
 export default function WhyChoose() {
   return (
